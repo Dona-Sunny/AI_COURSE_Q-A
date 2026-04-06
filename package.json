@@ -1,0 +1,10 @@
+{
+  "name": "ai-course-q-a",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-isolation=none test/etl.test.js",
+    "etl:build": "node scripts/build-notes.js"
+  }
+}
