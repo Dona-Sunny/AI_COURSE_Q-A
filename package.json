@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test --test-isolation=none test/etl.test.js test/retrieval.test.js",
+    "test": "node --test --test-isolation=none test/etl.test.js test/retrieval.test.js test/support-routing.test.js",
     "etl:build": "node scripts/build-notes.js"
   }
 }
