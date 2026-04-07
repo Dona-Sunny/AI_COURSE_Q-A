@@ -1,0 +1,42 @@
+[
+  {
+    "documentId": "ai-course-intro",
+    "documentTitle": "AI Course Intro Notes",
+    "chunkId": "ai-course-intro-chunk-1",
+    "text": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. These tasks include reasoning, learning, problem solving, and perception.",
+    "normalizedText": "introduction to artificial intelligence artificial intelligence is the field of building systems that can perform tasks requiring human like intelligence these tasks include reasoning learning problem solving and perception",
+    "tokens": ["introduction", "artificial", "intelligence", "artificial", "intelligence", "field", "building", "systems", "can", "perform", "tasks", "requiring", "human", "like", "intelligence", "tasks", "include", "reasoning", "learning", "problem", "solving", "perception"]
+  },
+  {
+    "documentId": "ai-course-intro",
+    "documentTitle": "AI Course Intro Notes",
+    "chunkId": "ai-course-intro-chunk-2",
+    "text": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. These tasks include reasoning, learning, problem solving, and perception.\n\nMachine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.",
+    "normalizedText": "introduction to artificial intelligence artificial intelligence is the field of building systems that can perform tasks requiring human like intelligence these tasks include reasoning learning problem solving and perception machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly",
+    "tokens": ["introduction", "artificial", "intelligence", "artificial", "intelligence", "field", "building", "systems", "can", "perform", "tasks", "requiring", "human", "like", "intelligence", "tasks", "include", "reasoning", "learning", "problem", "solving", "perception", "machine", "learning", "subset", "artificial", "intelligence", "which", "systems", "learn", "patterns", "data", "instead", "being", "programmed", "every", "rule", "explicitly"]
+  },
+  {
+    "documentId": "ai-course-intro",
+    "documentTitle": "AI Course Intro Notes",
+    "chunkId": "ai-course-intro-chunk-3",
+    "text": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.\n\nSupervised learning uses labeled training data. The model learns a mapping from inputs to known outputs.",
+    "normalizedText": "machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly supervised learning uses labeled training data the model learns a mapping from inputs to known outputs",
+    "tokens": ["machine", "learning", "subset", "artificial", "intelligence", "which", "systems", "learn", "patterns", "data", "instead", "being", "programmed", "every", "rule", "explicitly", "supervised", "learning", "labeled", "training", "data", "model", "learns", "mapping", "inputs", "known", "outputs"]
+  },
+  {
+    "documentId": "ai-course-intro",
+    "documentTitle": "AI Course Intro Notes",
+    "chunkId": "ai-course-intro-chunk-4",
+    "text": "Supervised learning uses labeled training data. The model learns a mapping from inputs to known outputs.\n\nNeural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions.",
+    "normalizedText": "supervised learning uses labeled training data the model learns a mapping from inputs to known outputs neural networks are computational models inspired by the structure of the human brain they consist of layers of interconnected nodes that transform input data into useful predictions",
+    "tokens": ["supervised", "learning", "labeled", "training", "data", "model", "learns", "mapping", "inputs", "known", "outputs", "neural", "networks", "computational", "models", "inspired", "structure", "human", "brain", "they", "consist", "layers", "interconnected", "nodes", "transform", "input", "data", "into", "useful", "predictions"]
+  },
+  {
+    "documentId": "ai-course-intro",
+    "documentTitle": "AI Course Intro Notes",
+    "chunkId": "ai-course-intro-chunk-5",
+    "text": "Neural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions.\n\nDeep learning is a form of machine learning that uses many hidden layers in a neural network to learn complex patterns.",
+    "normalizedText": "neural networks are computational models inspired by the structure of the human brain they consist of layers of interconnected nodes that transform input data into useful predictions deep learning is a form of machine learning that uses many hidden layers in a neural network to learn complex patterns",
+    "tokens": ["neural", "networks", "computational", "models", "inspired", "structure", "human", "brain", "they", "consist", "layers", "interconnected", "nodes", "transform", "input", "data", "into", "useful", "predictions", "deep", "learning", "form", "machine", "learning", "many", "hidden", "layers", "neural", "network", "learn", "complex", "patterns"]
+  }
+]
