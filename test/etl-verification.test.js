@@ -64,6 +64,8 @@ test("verifyNotesArtifact reports drift when the tracked artifact is out of date
     chunkOptions: { maxChars: 90, overlap: 1 }
   });
 
+  // CI relies on this deterministic message to tell the developer exactly how to
+  // repair artifact drift before committing or deploying.
   assert.equal(result.ok, false);
   assert.equal(result.reason, "out-of-sync");
   assert.match(result.message, /run npm run etl:build/i);

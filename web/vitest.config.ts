@@ -11,6 +11,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      // Mirror the app's import alias so component and server tests exercise the
+      // same module paths used in the Next.js project.
       "@": path.join(configDir, "src"),
     },
     preserveSymlinks: true,

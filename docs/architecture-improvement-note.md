@@ -38,6 +38,8 @@ This project started as a greenfield proof of concept. After the first working s
   - chat UI behavior
   - end-to-end browser flows
 - The Next.js app is easier to evolve because UI and HTTP glue do not need to own the core business rules.
+- The answer-generation layer now has an explicit provider seam, so deployment-specific changes
+  such as `stub`, `openrouter`, or `openai` mode do not require changes to retrieval or routing.
 
 ## Why this structure is better for the project
 

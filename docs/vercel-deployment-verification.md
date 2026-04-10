@@ -62,3 +62,4 @@ When `PLAYWRIGHT_BASE_URL` is set, the Playwright config skips the local web ser
 
 - The browser suite remains deterministic in CI because the local test server is launched with `ANSWER_GENERATION_MODE=stub`.
 - Production can use `ANSWER_GENERATION_MODE=openrouter` for a no-cost hosted provider path, or `ANSWER_GENERATION_MODE=openai` if you have an OpenAI API key with billing enabled.
+- The deployed assignment demo currently uses the `openrouter` path so supported answers stay live without requiring paid OpenAI billing.

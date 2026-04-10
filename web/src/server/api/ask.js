@@ -33,6 +33,8 @@ export async function handleAskRequest({ body, generateAnswer, notesPath }) {
       return {
         status: 500,
         json: {
+          // Surface provider configuration problems clearly so deployment issues
+          // fail fast instead of looking like note-loading failures.
           error: error.message,
         },
       };

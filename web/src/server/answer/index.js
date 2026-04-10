@@ -18,6 +18,8 @@ export function getAnswerGenerator({ env = process.env, createClient } = {}) {
     return createStubAnswerGenerator();
   }
 
+  // Keep provider selection behind one boundary so deployment changes do not
+  // leak into the retrieval, routing, or UI modules.
   if (mode === "openrouter") {
     return getConfiguredOpenRouterAnswerGenerator({ env, createClient });
   }
