@@ -5,7 +5,7 @@ let cachedNotes = null;
 let cachedPath = null;
 
 export function resolveNotesPath(customPath) {
-  return customPath ?? path.resolve(process.cwd(), "data", "notes.json");
+  return customPath ?? path.resolve(/*turbopackIgnore: true*/ process.cwd(), "data", "notes.json");
 }
 
 export function resetNotesCache() {

@@ -1,6 +1,11 @@
 import { routeQuestion } from "../ask/index.js";
+import { AnswerGenerationConfigError } from "../answer/openai.js";
 import { loadNotes } from "../notes/index.js";
 import { retrieveRelevantChunks } from "../retrieval/index.js";
+
+function isQuotaError(error) {
+  return error?.status === 429 || error?.code === "insufficient_quota" || error?.type === "insufficient_quota";
+}
 
 export async function handleAskRequest({ body, generateAnswer, notesPath }) {
   const question = body?.question?.trim();
@@ -23,7 +28,27 @@ export async function handleAskRequest({ body, generateAnswer, notesPath }) {
       status: 200,
       json: routed,
     };
-  } catch {
+  } catch (error) {
+    if (error instanceof AnswerGenerationConfigError) {
+      return {
+        status: 500,
+        json: {
+          error:
+            "Answer generation is not configured. Set OPENAI_API_KEY and OPENAI_MODEL for supported answers.",
+        },
+      };
+    }
+
+    if (isQuotaError(error)) {
+      return {
+        status: 503,
+        json: {
+          error:
+            "Answer generation is temporarily unavailable because the OpenAI quota is exhausted. Please try again later.",
+        },
+      };
+    }
+
     return {
       status: 500,
       json: {
