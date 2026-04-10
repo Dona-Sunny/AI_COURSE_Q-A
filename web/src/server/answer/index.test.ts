@@ -23,4 +23,39 @@ describe("getAnswerGenerator", () => {
 
     expect(createClient).not.toHaveBeenCalled();
   });
+
+  it("returns the OpenRouter-backed generator when ANSWER_GENERATION_MODE=openrouter", async () => {
+    const chatCompletionsCreate = vi.fn().mockResolvedValue({
+      choices: [
+        {
+          message: {
+            content: "OpenRouter answered from the notes.",
+          },
+        },
+      ],
+    });
+    const createClient = vi.fn().mockReturnValue({
+      chat: {
+        completions: {
+          create: chatCompletionsCreate,
+        },
+      },
+    });
+
+    const generateAnswer = getAnswerGenerator({
+      env: {
+        ANSWER_GENERATION_MODE: "openrouter",
+        OPENROUTER_API_KEY: "test-key",
+      },
+      createClient,
+    });
+
+    await expect(
+      generateAnswer(["Context chunk"], "Explain neural networks.", {
+        supportLevel: "partial",
+      })
+    ).resolves.toBe("OpenRouter answered from the notes.");
+
+    expect(createClient).toHaveBeenCalledTimes(1);
+  });
 });

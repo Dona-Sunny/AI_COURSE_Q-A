@@ -1,12 +1,7 @@
 import OpenAI from "openai";
+import { AnswerGenerationConfigError } from "./errors.js";
 
-export class AnswerGenerationConfigError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "AnswerGenerationConfigError";
-    this.code = "ANSWER_GENERATION_CONFIG_ERROR";
-  }
-}
+export { AnswerGenerationConfigError } from "./errors.js";
 
 function formatContext(context) {
   return context

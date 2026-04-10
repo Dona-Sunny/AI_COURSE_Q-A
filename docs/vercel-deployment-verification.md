@@ -2,7 +2,17 @@
 
 ## Required production environment variables
 
-Set these in the Vercel project before deploying:
+Set one of these provider configurations in the Vercel project before deploying.
+
+Recommended no-cost path:
+
+- `ANSWER_GENERATION_MODE=openrouter`
+- `OPENROUTER_API_KEY=<your free OpenRouter key>`
+- `OPENROUTER_MODEL=openrouter/free`
+- `OPENROUTER_SITE_URL=<your deployed site URL>`
+- `OPENROUTER_APP_NAME=AI Course Notes Q&A`
+
+Optional paid OpenAI path:
 
 - `ANSWER_GENERATION_MODE=openai`
 - `OPENAI_API_KEY=<your key>`
@@ -51,4 +61,4 @@ When `PLAYWRIGHT_BASE_URL` is set, the Playwright config skips the local web ser
 ## Notes
 
 - The browser suite remains deterministic in CI because the local test server is launched with `ANSWER_GENERATION_MODE=stub`.
-- Production should use `ANSWER_GENERATION_MODE=openai` so supported answers come from the real OpenAI-backed generator.
+- Production can use `ANSWER_GENERATION_MODE=openrouter` for a no-cost hosted provider path, or `ANSWER_GENERATION_MODE=openai` if you have an OpenAI API key with billing enabled.

@@ -6,7 +6,7 @@ import path from "node:path";
 
 import { describe, expect, it, vi } from "vitest";
 
-import { AnswerGenerationConfigError } from "../answer/openai";
+import { AnswerGenerationConfigError } from "../answer/errors";
 import { handleAskRequest } from "./ask";
 
 async function writeNotesFixture() {
@@ -52,11 +52,11 @@ describe("handleAskRequest", () => {
     expect(result.status).toBe(500);
     expect(result.json).toEqual({
       error:
-        "Answer generation is not configured. Set OPENAI_API_KEY and OPENAI_MODEL for supported answers.",
+        "Missing OPENAI_API_KEY. Set OPENAI_API_KEY to enable grounded answers.",
     });
   });
 
-  it("returns a clear quota message when the OpenAI provider reports insufficient quota", async () => {
+  it("returns a clear quota message when the configured provider reports insufficient quota", async () => {
     const notesPath = await writeNotesFixture();
 
     const result = await handleAskRequest({
@@ -72,7 +72,7 @@ describe("handleAskRequest", () => {
     expect(result.status).toBe(503);
     expect(result.json).toEqual({
       error:
-        "Answer generation is temporarily unavailable because the OpenAI quota is exhausted. Please try again later.",
+        "Answer generation is temporarily unavailable because the configured model provider is out of quota or rate-limited. Please try again later.",
     });
   });
 

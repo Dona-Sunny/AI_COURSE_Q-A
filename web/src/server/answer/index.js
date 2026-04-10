@@ -1,4 +1,5 @@
 import { getConfiguredAnswerGenerator } from "./openai.js";
+import { getConfiguredOpenRouterAnswerGenerator } from "./openrouter.js";
 
 function createStubAnswerGenerator() {
   return async function generateAnswer(_context, question, meta) {
@@ -11,8 +12,14 @@ export function getAnswerGenerationMode(env = process.env) {
 }
 
 export function getAnswerGenerator({ env = process.env, createClient } = {}) {
-  if (getAnswerGenerationMode(env) === "stub") {
+  const mode = getAnswerGenerationMode(env);
+
+  if (mode === "stub") {
     return createStubAnswerGenerator();
+  }
+
+  if (mode === "openrouter") {
+    return getConfiguredOpenRouterAnswerGenerator({ env, createClient });
   }
 
   return getConfiguredAnswerGenerator({ env, createClient });
