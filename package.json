@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test --test-isolation=none test/etl.test.js test/retrieval.test.js test/support-routing.test.js test/api-ask.test.js",
+    "test:web": "npm --prefix web test",
+    "test:e2e": "playwright test",
     "etl:build": "node scripts/build-notes.js"
   }
 }
