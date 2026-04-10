@@ -13,5 +13,6 @@ export default defineConfig({
     alias: {
       "@": path.join(configDir, "src"),
     },
+    preserveSymlinks: true,
   },
 });

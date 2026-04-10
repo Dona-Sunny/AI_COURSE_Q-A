@@ -85,14 +85,74 @@ export function buildChunkRecords(documentId, documentTitle, text, options = {})
   }));
 }
 
-export async function buildNotesArtifact({ inputPath, outputPath, documentId, documentTitle, chunkOptions }) {
-  const rawText = await readFile(inputPath, "utf8");
-  const records = buildChunkRecords(documentId, documentTitle, rawText, chunkOptions);
-  const serialized = JSON.stringify(records, null, 2);
+export function serializeNotesArtifact(records) {
+  return `${JSON.stringify(records, null, 2)}\n`;
+}
 
-  await writeFile(outputPath, `${serialized}\n`, "utf8");
+async function generateArtifactRecords({ inputPath, documentId, documentTitle, chunkOptions }) {
+  const rawText = await readFile(inputPath, "utf8");
+  return buildChunkRecords(documentId, documentTitle, rawText, chunkOptions);
+}
+
+export async function buildNotesArtifact({ inputPath, outputPath, documentId, documentTitle, chunkOptions }) {
+  const records = await generateArtifactRecords({
+    inputPath,
+    documentId,
+    documentTitle,
+    chunkOptions
+  });
+  const serialized = serializeNotesArtifact(records);
+
+  await writeFile(outputPath, serialized, "utf8");
 
   return records;
+}
+
+export async function verifyNotesArtifact({
+  inputPath,
+  outputPath,
+  documentId,
+  documentTitle,
+  chunkOptions
+}) {
+  const records = await generateArtifactRecords({
+    inputPath,
+    documentId,
+    documentTitle,
+    chunkOptions
+  });
+  const expected = serializeNotesArtifact(records);
+  let actual;
+
+  try {
+    actual = await readFile(outputPath, "utf8");
+  } catch (error) {
+    if (error && error.code === "ENOENT") {
+      return {
+        ok: false,
+        reason: "missing",
+        message: "Processed notes artifact is missing. Run npm run etl:build."
+      };
+    }
+
+    throw error;
+  }
+
+  if (actual === expected) {
+    return {
+      ok: true,
+      reason: "in-sync",
+      message: "Processed notes artifact is in sync."
+    };
+  }
+
+  return {
+    ok: false,
+    reason: "out-of-sync",
+    message: "Processed notes artifact is out of date. Run npm run etl:build.",
+    expected,
+    actual
+  };
 }
 
 export function resolveProjectPath(...segments) {

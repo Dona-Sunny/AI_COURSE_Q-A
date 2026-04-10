@@ -1,11 +1,15 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig, devices } from "@playwright/test";
 
+const configDir = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
-  testDir: "./e2e",
+  testDir: path.join(configDir, "e2e"),
   retries: process.env.CI ? 2 : 0,
   reporter: "list",
   use: {
-    baseURL: "http://127.0.0.1:3000",
+    baseURL: "http://localhost:3100",
     trace: "on-first-retry",
   },
   projects: [
@@ -17,10 +21,10 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm --prefix web run dev",
-    url: "http://127.0.0.1:3000",
+    command: "npm --prefix web run dev -- --webpack --port 3100",
+    url: "http://localhost:3100",
     timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
     stdout: "ignore",
     stderr: "pipe",
   },

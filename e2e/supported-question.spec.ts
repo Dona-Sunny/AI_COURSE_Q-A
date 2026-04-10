@@ -12,11 +12,15 @@ test("student can ask a supported question and see grounded results", async ({ p
   );
   await page.getByRole("button", { name: "Ask Notes" }).click();
 
+  const transcript = page.getByLabel("Conversation transcript");
+
   await expect(page.getByRole("heading", { name: "Conversation" })).toBeVisible();
-  await expect(page.getByText("Student")).toBeVisible();
-  await expect(page.getByText("Notes Assistant")).toBeVisible();
-  await expect(page.getByText("What is machine learning?")).toBeVisible();
-  await expect(page.getByText(/stub answer for/i)).toBeVisible();
-  await expect(page.getByText("strong")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Sources" })).toBeVisible();
+  await expect(transcript.getByText("Student")).toBeVisible();
+  await expect(transcript.getByText("Notes Assistant")).toBeVisible();
+  await expect(transcript.getByText("What is machine learning?", { exact: true })).toBeVisible();
+  await expect(transcript.getByText(/stub answer for/i)).toBeVisible();
+  await expect(
+    transcript.locator("span").filter({ hasText: /^strong$/ })
+  ).toBeVisible();
+  await expect(transcript.getByRole("heading", { name: "Sources" })).toBeVisible();
 });
