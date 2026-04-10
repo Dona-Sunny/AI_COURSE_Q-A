@@ -2,6 +2,8 @@
 
 AI Course Notes Q&A is a small Next.js study app that lets a student ask plain-English questions about one bundled AI course note set and get grounded answers with source excerpts.
 
+This repository is intentionally scoped as a course-project proof of concept rather than a production-scale platform.
+
 Live app:
 - `https://web-pink-two-52.vercel.app`
 

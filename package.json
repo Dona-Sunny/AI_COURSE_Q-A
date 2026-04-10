@@ -1,6 +1,7 @@
 {
   "name": "ai-course-q-a",
   "version": "0.1.0",
+  "description": "Focused proof-of-concept AI course notes Q&A application.",
   "private": true,
   "type": "module",
   "scripts": {
