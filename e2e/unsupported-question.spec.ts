@@ -5,9 +5,9 @@ test("student sees a deterministic refusal when the notes do not support the que
 }) => {
   await page.goto("/");
 
-  await page
-    .getByLabel("Ask a course concept question")
-    .fill("What is blockchain consensus?");
+  const questionField = page.getByLabel("Ask a course concept question");
+  await expect(questionField).toHaveValue("What is machine learning?");
+  await questionField.fill("What is blockchain consensus?");
   await page.getByRole("button", { name: "Ask Notes" }).click();
 
   const transcript = page.getByLabel("Conversation transcript");

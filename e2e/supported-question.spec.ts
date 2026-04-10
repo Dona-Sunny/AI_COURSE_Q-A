@@ -7,9 +7,9 @@ test("student can ask a supported question and see grounded results", async ({ p
     page.getByRole("heading", { name: "Ask grounded questions from your AI course notes." })
   ).toBeVisible();
 
-  await page.getByLabel("Ask a course concept question").fill(
-    "What is machine learning?"
-  );
+  const questionField = page.getByLabel("Ask a course concept question");
+  await expect(questionField).toHaveValue("What is machine learning?");
+  await questionField.fill("What is machine learning?");
   await page.getByRole("button", { name: "Ask Notes" }).click();
 
   const transcript = page.getByLabel("Conversation transcript");

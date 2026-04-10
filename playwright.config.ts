@@ -8,7 +8,12 @@ const deployedBaseUrl = process.env.PLAYWRIGHT_BASE_URL;
 export default defineConfig({
   testDir: path.join(configDir, "e2e"),
   retries: process.env.CI ? 2 : 0,
-  reporter: "list",
+  reporter: process.env.CI
+    ? [
+        ["list"],
+        ["html", { outputFolder: "playwright-report", open: "never" }],
+      ]
+    : "list",
   use: {
     baseURL: deployedBaseUrl || "http://localhost:3100",
     trace: "on-first-retry",
