@@ -28,6 +28,8 @@ export function splitIntoParagraphs(text) {
     .map((paragraph) => paragraph.replace(/\s+/g, " ").trim())
     .filter(Boolean);
 
+  // Keep markdown headings attached to the next paragraph so chunking does not
+  // separate a section title from the explanation it introduces.
   return paragraphs.reduce((merged, paragraph) => {
     if (isHeadingOnlyParagraph(paragraph) && merged.length === 0) {
       merged.push(paragraph);
@@ -56,6 +58,7 @@ export function createChunks(paragraphs, options = {}) {
 
     if (current.length > 0 && projectedLength > maxChars) {
       chunks.push(current.join("\n\n"));
+      // Reuse the trailing paragraphs to keep neighboring chunks slightly overlapped.
       current = overlap > 0 ? current.slice(-overlap) : [];
       currentLength = current.join("\n\n").length;
     }
@@ -81,7 +84,7 @@ export function buildChunkRecords(documentId, documentTitle, text, options = {})
     chunkId: `${documentId}-chunk-${index + 1}`,
     text: chunkText,
     normalizedText: normalizeText(chunkText),
-    tokens: tokenize(chunkText)
+    tokens: tokenize(chunkText),
   }));
 }
 
@@ -99,7 +102,7 @@ export async function buildNotesArtifact({ inputPath, outputPath, documentId, do
     inputPath,
     documentId,
     documentTitle,
-    chunkOptions
+    chunkOptions,
   });
   const serialized = serializeNotesArtifact(records);
 
@@ -113,13 +116,13 @@ export async function verifyNotesArtifact({
   outputPath,
   documentId,
   documentTitle,
-  chunkOptions
+  chunkOptions,
 }) {
   const records = await generateArtifactRecords({
     inputPath,
     documentId,
     documentTitle,
-    chunkOptions
+    chunkOptions,
   });
   const expected = serializeNotesArtifact(records);
   let actual;
@@ -131,7 +134,7 @@ export async function verifyNotesArtifact({
       return {
         ok: false,
         reason: "missing",
-        message: "Processed notes artifact is missing. Run npm run etl:build."
+        message: "Processed notes artifact is missing. Run npm run etl:build.",
       };
     }
 
@@ -140,10 +143,10 @@ export async function verifyNotesArtifact({
 
   if (actual === expected) {
     return {
-      ok: true,
-      reason: "in-sync",
-      message: "Processed notes artifact is in sync."
-    };
+        ok: true,
+        reason: "in-sync",
+        message: "Processed notes artifact is in sync.",
+      };
   }
 
   return {
@@ -151,7 +154,7 @@ export async function verifyNotesArtifact({
     reason: "out-of-sync",
     message: "Processed notes artifact is out of date. Run npm run etl:build.",
     expected,
-    actual
+    actual,
   };
 }
 
