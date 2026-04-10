@@ -1,5 +1,6 @@
 import { resolveProjectPath, verifyNotesArtifact } from "../src/etl/index.js";
 
+// Fail CI when the committed notes artifact drifts from regenerated ETL output.
 const result = await verifyNotesArtifact({
   inputPath: resolveProjectPath("data", "raw", "ai-course-notes.md"),
   outputPath: resolveProjectPath("data", "notes.json"),
@@ -7,8 +8,8 @@ const result = await verifyNotesArtifact({
   documentTitle: "AI Course Intro Notes",
   chunkOptions: {
     maxChars: 220,
-    overlap: 1
-  }
+    overlap: 1,
+  },
 });
 
 if (!result.ok) {
