@@ -194,6 +194,27 @@ The evaluation covers:
 - 2 failure cases
 - 1 lightweight baseline
 
+Explicit evaluation cases used:
+- representative case 1: `What is machine learning?`
+- representative case 2: `What is supervised learning?`
+- representative case 3: `Explain neural networks.`
+- representative case 4: `What are thinking machines?`
+- representative case 5: `How do computers learn from examples?`
+- failure case 1: `What is blockchain consensus?`
+- failure case 2: `What is training with answer keys called?`
+
+Explicit lightweight baseline used:
+- baseline system:
+  the original exact-match retrieval behavior with query expansion disabled
+- baseline implementation:
+  `retrieveRelevantChunks(notes, question, { expandQuery: false })`
+- comparison target:
+  the improved retrieval path with course-specific query expansion enabled
+- why this baseline is lightweight:
+  it is not a second full app, only the earlier simpler retrieval behavior inside the same application
+
+These cases are saved in [cases.json](c:\Users\donas\OneDrive%20-%20Durham%20College\AI\AIDI_2001\Assignment5\AI_Course_QA\evaluation\cases.json) and the generated results are summarized in [assignment6-evaluation.md](c:\Users\donas\OneDrive%20-%20Durham%20College\AI\AIDI_2001\Assignment5\AI_Course_QA\evaluation\results\assignment6-evaluation.md).
+
 Current evaluation summary:
 - retrieval support accuracy improved from `57.1%` to `85.7%`
 - retrieval hit@3 improved from `83.3%` to `100.0%`
@@ -335,5 +356,3 @@ npm --prefix web run dev
 ```
 
 For stable local testing, the Playwright config launches the web app in `stub` mode automatically.
-
-
