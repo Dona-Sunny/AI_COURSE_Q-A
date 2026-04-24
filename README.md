@@ -336,16 +336,4 @@ npm --prefix web run dev
 
 For stable local testing, the Playwright config launches the web app in `stub` mode automatically.
 
-## Submission-ready demo talking points
 
-For the final video, you can show:
-- the live Vercel URL
-- the public GitHub repo
-- the PRD and GitHub issues
-- the architecture note
-- the Assignment 6 evaluation report
-- the before/after retrieval improvement
-- the data flow from raw notes to curated JSON to grounded answer
-- one supported question walkthrough
-- one unsupported question walkthrough
-- the Playwright tests and CI workflow
