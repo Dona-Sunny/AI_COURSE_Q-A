@@ -10,7 +10,8 @@
     "test:web": "npm --prefix web test",
     "test:e2e": "playwright test",
     "etl:build": "node scripts/build-notes.js",
-    "etl:verify": "node scripts/verify-notes-artifact.js"
+    "etl:verify": "node scripts/verify-notes-artifact.js",
+    "eval:assignment6": "node scripts/evaluate-assignment6.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1"

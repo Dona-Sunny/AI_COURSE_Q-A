@@ -1,0 +1,65 @@
+[
+  {
+    "id": "rep-1-machine-learning",
+    "question": "What is machine learning?",
+    "category": "representative",
+    "desiredSupportLevel": "strong",
+    "relevantChunkIds": ["ai-course-intro-chunk-2", "ai-course-intro-chunk-3"],
+    "expectedKeywords": ["machine learning", "patterns", "data"],
+    "notes": "Direct in-scope definition query."
+  },
+  {
+    "id": "rep-2-supervised-learning",
+    "question": "What is supervised learning?",
+    "category": "representative",
+    "desiredSupportLevel": "strong",
+    "relevantChunkIds": ["ai-course-intro-chunk-3", "ai-course-intro-chunk-4"],
+    "expectedKeywords": ["supervised learning", "labeled", "outputs"],
+    "notes": "Direct question about labeled training data."
+  },
+  {
+    "id": "rep-3-neural-networks",
+    "question": "Explain neural networks.",
+    "category": "representative",
+    "desiredSupportLevel": "strong",
+    "relevantChunkIds": ["ai-course-intro-chunk-4", "ai-course-intro-chunk-5"],
+    "expectedKeywords": ["neural networks", "layers", "predictions"],
+    "notes": "Direct question about a named course concept."
+  },
+  {
+    "id": "rep-4-thinking-machines",
+    "question": "What are thinking machines?",
+    "category": "representative",
+    "desiredSupportLevel": "strong",
+    "relevantChunkIds": ["ai-course-intro-chunk-1", "ai-course-intro-chunk-2"],
+    "expectedKeywords": ["artificial intelligence", "systems", "intelligence"],
+    "notes": "Natural-language paraphrase that exact keyword matching previously missed."
+  },
+  {
+    "id": "rep-5-learn-from-examples",
+    "question": "How do computers learn from examples?",
+    "category": "representative",
+    "desiredSupportLevel": "strong",
+    "relevantChunkIds": ["ai-course-intro-chunk-2", "ai-course-intro-chunk-3"],
+    "expectedKeywords": ["machine learning", "data", "learn"],
+    "notes": "Paraphrased in-scope question improved by query expansion."
+  },
+  {
+    "id": "fail-1-out-of-scope",
+    "question": "What is blockchain consensus?",
+    "category": "failure-handled",
+    "desiredSupportLevel": "none",
+    "relevantChunkIds": [],
+    "expectedKeywords": [],
+    "notes": "Out-of-scope question that the system should refuse safely."
+  },
+  {
+    "id": "fail-2-answer-keys",
+    "question": "What is training with answer keys called?",
+    "category": "failure-remaining",
+    "desiredSupportLevel": "strong",
+    "relevantChunkIds": ["ai-course-intro-chunk-3", "ai-course-intro-chunk-4"],
+    "expectedKeywords": ["supervised learning", "labeled", "training"],
+    "notes": "Semantically in-scope wording that still only gets partial support."
+  }
+]

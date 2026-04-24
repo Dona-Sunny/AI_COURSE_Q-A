@@ -56,3 +56,26 @@ test("retrieveRelevantChunks returns strong when matched terms are supported acr
   assert.equal(result.results.length, 3);
   assert.ok(result.results.every((chunk) => chunk.score > 0));
 });
+
+test("retrieveRelevantChunks keeps the exact-match baseline available for evaluation", async () => {
+  const notes = await loadNotes();
+
+  const result = retrieveRelevantChunks(notes, "What are thinking machines?", {
+    expandQuery: false,
+  });
+
+  assert.equal(result.supportLevel, "none");
+  assert.deepEqual(result.results, []);
+});
+
+test("retrieveRelevantChunks expands common course paraphrases into grounded strong support", async () => {
+  const notes = await loadNotes();
+
+  const result = retrieveRelevantChunks(notes, "How do computers learn from examples?");
+
+  assert.equal(result.supportLevel, "strong");
+  assert.equal(result.results[0].chunkId, "ai-course-intro-chunk-3");
+  assert.ok(result.results[0].matchedTerms.includes("machine"));
+  assert.ok(result.results[0].matchedTerms.includes("learning"));
+  assert.ok(result.results[0].matchedTerms.includes("data"));
+});

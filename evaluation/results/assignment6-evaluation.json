@@ -1,0 +1,622 @@
+{
+  "summary": {
+    "generatedAt": "2026-04-24T04:11:15.054Z",
+    "retrieval": {
+      "baselineSupportAccuracy": "57.1%",
+      "improvedSupportAccuracy": "85.7%",
+      "baselineHitAt3": "83.3%",
+      "improvedHitAt3": "100.0%"
+    },
+    "endToEnd": {
+      "successRate": "85.7%"
+    },
+    "outputQuality": {
+      "averageOverallScore": "1.62"
+    },
+    "consistency": {
+      "passRate": "100.0%"
+    }
+  },
+  "cases": [
+    {
+      "id": "rep-1-machine-learning",
+      "category": "representative",
+      "question": "What is machine learning?",
+      "desiredSupportLevel": "strong",
+      "notes": "Direct in-scope definition query.",
+      "baseline": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "score": 2,
+            "matchedTerms": [
+              "machine",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 2,
+            "matchedTerms": [
+              "machine",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "score": 2,
+            "matchedTerms": [
+              "machine",
+              "learning"
+            ]
+          }
+        ]
+      },
+      "improved": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "score": 2,
+            "matchedTerms": [
+              "machine",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 2,
+            "matchedTerms": [
+              "machine",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "score": 2,
+            "matchedTerms": [
+              "machine",
+              "learning"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "question": "What is machine learning?",
+        "supportLevel": "strong",
+        "answer": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly. Deep learning is a form of machine learning that uses many hidden layers in a neural network to learn complex patterns.",
+        "sources": [
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. These tasks include reasoning, learning, problem solving, and perception.\n\nMachine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.\n\nSupervised learning uses labeled training data. The model learns a mapping from inputs to known outputs."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Neural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions.\n\nDeep learning is a form of machine learning that uses many hidden layers in a neural network to learn complex patterns."
+          }
+        ]
+      },
+      "taskSuccess": {
+        "success": true,
+        "sourcesPresent": true
+      },
+      "outputQuality": {
+        "groundedness": 1,
+        "conceptCoverage": 2,
+        "clarity": 2,
+        "overall": 1.6666666666666667
+      },
+      "consistent": true
+    },
+    {
+      "id": "rep-2-supervised-learning",
+      "category": "representative",
+      "question": "What is supervised learning?",
+      "desiredSupportLevel": "strong",
+      "notes": "Direct question about labeled training data.",
+      "baseline": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 2,
+            "matchedTerms": [
+              "supervised",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "score": 2,
+            "matchedTerms": [
+              "supervised",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-1",
+            "score": 1,
+            "matchedTerms": [
+              "learning"
+            ]
+          }
+        ]
+      },
+      "improved": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 2,
+            "matchedTerms": [
+              "supervised",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "score": 2,
+            "matchedTerms": [
+              "supervised",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-1",
+            "score": 1,
+            "matchedTerms": [
+              "learning"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "question": "What is supervised learning?",
+        "supportLevel": "strong",
+        "answer": "Supervised learning uses labeled training data. Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.",
+        "sources": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.\n\nSupervised learning uses labeled training data. The model learns a mapping from inputs to known outputs."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Supervised learning uses labeled training data. The model learns a mapping from inputs to known outputs.\n\nNeural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-1",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. These tasks include reasoning, learning, problem solving, and perception."
+          }
+        ]
+      },
+      "taskSuccess": {
+        "success": true,
+        "sourcesPresent": true
+      },
+      "outputQuality": {
+        "groundedness": 1,
+        "conceptCoverage": 1,
+        "clarity": 2,
+        "overall": 1.3333333333333333
+      },
+      "consistent": true
+    },
+    {
+      "id": "rep-3-neural-networks",
+      "category": "representative",
+      "question": "Explain neural networks.",
+      "desiredSupportLevel": "strong",
+      "notes": "Direct question about a named course concept.",
+      "baseline": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "score": 2,
+            "matchedTerms": [
+              "neural",
+              "networks"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "score": 2,
+            "matchedTerms": [
+              "neural",
+              "networks"
+            ]
+          }
+        ]
+      },
+      "improved": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "score": 2,
+            "matchedTerms": [
+              "neural",
+              "networks"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "score": 2,
+            "matchedTerms": [
+              "neural",
+              "networks"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "question": "Explain neural networks.",
+        "supportLevel": "strong",
+        "answer": "Neural networks are computational models inspired by the structure of the human brain. Deep learning is a form of machine learning that uses many hidden layers in a neural network to learn complex patterns.",
+        "sources": [
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Supervised learning uses labeled training data. The model learns a mapping from inputs to known outputs.\n\nNeural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Neural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions.\n\nDeep learning is a form of machine learning that uses many hidden layers in a neural network to learn complex patterns."
+          }
+        ]
+      },
+      "taskSuccess": {
+        "success": true,
+        "sourcesPresent": true
+      },
+      "outputQuality": {
+        "groundedness": 1,
+        "conceptCoverage": 1,
+        "clarity": 2,
+        "overall": 1.3333333333333333
+      },
+      "consistent": true
+    },
+    {
+      "id": "rep-4-thinking-machines",
+      "category": "representative",
+      "question": "What are thinking machines?",
+      "desiredSupportLevel": "strong",
+      "notes": "Natural-language paraphrase that exact keyword matching previously missed.",
+      "baseline": {
+        "supportLevel": "none",
+        "supportCorrect": false,
+        "hitAt3": false,
+        "topChunks": []
+      },
+      "improved": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-1",
+            "score": 3,
+            "matchedTerms": [
+              "intelligence",
+              "systems",
+              "artificial"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "score": 3,
+            "matchedTerms": [
+              "intelligence",
+              "systems",
+              "artificial"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 3,
+            "matchedTerms": [
+              "intelligence",
+              "systems",
+              "artificial"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "question": "What are thinking machines?",
+        "supportLevel": "strong",
+        "answer": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.",
+        "sources": [
+          {
+            "chunkId": "ai-course-intro-chunk-1",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. These tasks include reasoning, learning, problem solving, and perception."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. These tasks include reasoning, learning, problem solving, and perception.\n\nMachine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.\n\nSupervised learning uses labeled training data. The model learns a mapping from inputs to known outputs."
+          }
+        ]
+      },
+      "taskSuccess": {
+        "success": true,
+        "sourcesPresent": true
+      },
+      "outputQuality": {
+        "groundedness": 1,
+        "conceptCoverage": 2,
+        "clarity": 2,
+        "overall": 1.6666666666666667
+      },
+      "consistent": true
+    },
+    {
+      "id": "rep-5-learn-from-examples",
+      "category": "representative",
+      "question": "How do computers learn from examples?",
+      "desiredSupportLevel": "strong",
+      "notes": "Paraphrased in-scope question improved by query expansion.",
+      "baseline": {
+        "supportLevel": "partial",
+        "supportCorrect": false,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "score": 1,
+            "matchedTerms": [
+              "learn"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 1,
+            "matchedTerms": [
+              "learn"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "score": 1,
+            "matchedTerms": [
+              "learn"
+            ]
+          }
+        ]
+      },
+      "improved": {
+        "supportLevel": "strong",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 6,
+            "matchedTerms": [
+              "learn",
+              "systems",
+              "data",
+              "labeled",
+              "machine",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "score": 5,
+            "matchedTerms": [
+              "learn",
+              "systems",
+              "data",
+              "machine",
+              "learning"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "score": 4,
+            "matchedTerms": [
+              "learn",
+              "data",
+              "machine",
+              "learning"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "question": "How do computers learn from examples?",
+        "supportLevel": "strong",
+        "answer": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly. Supervised learning uses labeled training data.",
+        "sources": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.\n\nSupervised learning uses labeled training data. The model learns a mapping from inputs to known outputs."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-2",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "# Introduction to Artificial Intelligence Artificial Intelligence is the field of building systems that can perform tasks requiring human-like intelligence. These tasks include reasoning, learning, problem solving, and perception.\n\nMachine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-5",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Neural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions.\n\nDeep learning is a form of machine learning that uses many hidden layers in a neural network to learn complex patterns."
+          }
+        ]
+      },
+      "taskSuccess": {
+        "success": true,
+        "sourcesPresent": true
+      },
+      "outputQuality": {
+        "groundedness": 1,
+        "conceptCoverage": 2,
+        "clarity": 2,
+        "overall": 1.6666666666666667
+      },
+      "consistent": true
+    },
+    {
+      "id": "fail-1-out-of-scope",
+      "category": "failure-handled",
+      "question": "What is blockchain consensus?",
+      "desiredSupportLevel": "none",
+      "notes": "Out-of-scope question that the system should refuse safely.",
+      "baseline": {
+        "supportLevel": "none",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": []
+      },
+      "improved": {
+        "supportLevel": "none",
+        "supportCorrect": true,
+        "hitAt3": true,
+        "topChunks": []
+      },
+      "response": {
+        "question": "What is blockchain consensus?",
+        "supportLevel": "none",
+        "answer": "I could not find enough relevant information in the course notes to answer that confidently.",
+        "sources": []
+      },
+      "taskSuccess": {
+        "success": true,
+        "sourcesPresent": false
+      },
+      "outputQuality": {
+        "groundedness": 2,
+        "conceptCoverage": 2,
+        "clarity": 2,
+        "overall": 2
+      },
+      "consistent": true
+    },
+    {
+      "id": "fail-2-answer-keys",
+      "category": "failure-remaining",
+      "question": "What is training with answer keys called?",
+      "desiredSupportLevel": "strong",
+      "notes": "Semantically in-scope wording that still only gets partial support.",
+      "baseline": {
+        "supportLevel": "partial",
+        "supportCorrect": false,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 1,
+            "matchedTerms": [
+              "training"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "score": 1,
+            "matchedTerms": [
+              "training"
+            ]
+          }
+        ]
+      },
+      "improved": {
+        "supportLevel": "partial",
+        "supportCorrect": false,
+        "hitAt3": true,
+        "topChunks": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "score": 1,
+            "matchedTerms": [
+              "training"
+            ]
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "score": 1,
+            "matchedTerms": [
+              "training"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "question": "What is training with answer keys called?",
+        "supportLevel": "partial",
+        "answer": "Supervised learning uses labeled training data.\n\nNote: This answer is based only on the available course notes and may be incomplete.",
+        "sources": [
+          {
+            "chunkId": "ai-course-intro-chunk-3",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Machine learning is a subset of artificial intelligence in which systems learn patterns from data instead of being programmed with every rule explicitly.\n\nSupervised learning uses labeled training data. The model learns a mapping from inputs to known outputs."
+          },
+          {
+            "chunkId": "ai-course-intro-chunk-4",
+            "documentId": "ai-course-intro",
+            "documentTitle": "AI Course Intro Notes",
+            "excerpt": "Supervised learning uses labeled training data. The model learns a mapping from inputs to known outputs.\n\nNeural networks are computational models inspired by the structure of the human brain. They consist of layers of interconnected nodes that transform input data into useful predictions."
+          }
+        ]
+      },
+      "taskSuccess": {
+        "success": false,
+        "sourcesPresent": true
+      },
+      "outputQuality": {
+        "groundedness": 1,
+        "conceptCoverage": 2,
+        "clarity": 2,
+        "overall": 1.6666666666666667
+      },
+      "consistent": true
+    }
+  ]
+}

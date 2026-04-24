@@ -67,6 +67,18 @@ test("handleAskRequest returns grounded answer for strong support", async () => 
   assert.equal(response.json.question, "What is machine learning in artificial intelligence?");
 });
 
+test("handleAskRequest handles paraphrased in-scope questions after query expansion", async () => {
+  const response = await handleAskRequest({
+    body: { question: "What are thinking machines?" },
+    generateAnswer: async () =>
+      "Artificial intelligence studies systems that perform human-like reasoning and learning tasks."
+  });
+
+  assert.equal(response.status, 200);
+  assert.equal(response.json.supportLevel, "strong");
+  assert.ok(response.json.sources.length > 0);
+});
+
 test("handleAskRequest returns 500 when notes are unavailable", async () => {
   const missingPath = path.join(tmpdir(), "missing-notes.json");
 

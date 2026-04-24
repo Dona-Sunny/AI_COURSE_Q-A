@@ -1,4 +1,67 @@
-import { tokenize } from "../etl/index.js";
+import { normalizeText, tokenize } from "../etl/index.js";
+
+const QUERY_TOKEN_ALIASES = new Map([
+  ["thinking", ["intelligence"]],
+  ["smart", ["intelligence"]],
+  ["machines", ["systems"]],
+  ["computers", ["systems"]],
+  ["computer", ["systems"]],
+  ["examples", ["data", "labeled"]],
+  ["example", ["data", "labeled"]],
+  ["layered", ["layers"]],
+]);
+
+const QUERY_PHRASE_EXPANSIONS = [
+  {
+    phrase: "thinking machines",
+    expansions: ["artificial", "intelligence", "systems"],
+  },
+  {
+    phrase: "smart systems",
+    expansions: ["artificial", "intelligence", "systems"],
+  },
+  {
+    phrase: "learn from examples",
+    expansions: ["machine", "learning", "data"],
+  },
+  {
+    phrase: "learning from examples",
+    expansions: ["supervised", "learning", "labeled", "data"],
+  },
+  {
+    phrase: "brain inspired",
+    expansions: ["neural", "networks"],
+  },
+  {
+    phrase: "brain like",
+    expansions: ["neural", "networks"],
+  },
+  {
+    phrase: "layered representation learning",
+    expansions: ["deep", "learning", "layers"],
+  },
+];
+
+export function expandQueryTokens(question, queryTokens) {
+  const expandedTokens = [...queryTokens];
+  const normalizedQuestion = normalizeText(question);
+
+  for (const token of queryTokens) {
+    for (const alias of QUERY_TOKEN_ALIASES.get(token) ?? []) {
+      expandedTokens.push(alias);
+    }
+  }
+
+  for (const { phrase, expansions } of QUERY_PHRASE_EXPANSIONS) {
+    if (!normalizedQuestion.includes(phrase)) {
+      continue;
+    }
+
+    expandedTokens.push(...expansions);
+  }
+
+  return [...new Set(expandedTokens)];
+}
 
 export function scoreChunk(tokens, queryTokens) {
   const tokenSet = new Set(tokens);
@@ -35,7 +98,11 @@ export function classifySupport(results) {
 
 export function retrieveRelevantChunks(notes, question, options = {}) {
   const limit = options.limit ?? 3;
-  const queryTokens = tokenize(question);
+  const baseQueryTokens = tokenize(question);
+  const queryTokens =
+    options.expandQuery === false
+      ? baseQueryTokens
+      : expandQueryTokens(question, baseQueryTokens);
 
   const rankedResults = notes
     .map((chunk) => {
